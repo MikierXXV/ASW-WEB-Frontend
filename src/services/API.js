@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const API_URL = 'https://asw-web-production.up.railway.app/api/';
+//TODO: mirar token
 const token = "";
 const headers = {
     Accept: 'application/json',
