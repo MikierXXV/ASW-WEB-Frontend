@@ -1,5 +1,11 @@
-import logo from './logo.svg';
+import React, {Component} from "react";
+import {Redirect, Route, Switch} from "react-router-dom";
+//import "boostrap/dist/css/bootstrap.min.css";
+//import "boostrap/dist/css/bootstrap.min.js";
 import './App.css';
+import API from "./services/API";
+import logo from './logo.svg';
+
 
 function App() {
   return (

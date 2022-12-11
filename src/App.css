@@ -1,4 +1,4 @@
-.App {
+/*.App {
   text-align: center;
 }
 
@@ -35,4 +35,74 @@
   to {
     transform: rotate(360deg);
   }
+}*/
+
+.link:link    { color:#000000; text-decoration:none; }
+.link:visited { color:#828282; text-decoration:none; }
+
+.default { font-family:Verdana, Geneva, sans-serif; font-size: 10pt; color:#828282; }
+.admin   { font-family:Verdana, Geneva, sans-serif; font-size:8.5pt; color:#000000; }
+.title   { font-family:Verdana, Geneva, sans-serif; font-size: 10pt; color:#828282; }
+.titleUser{ font-family:Verdana, Geneva, sans-serif; font-size: 10pt; color:#f13636; }
+.subtext { font-family:Verdana, Geneva, sans-serif; font-size:  7pt; color:#828282; }
+.subtextB { font-family:Verdana, Geneva, sans-serif; font-size:  7pt; color:#000000; }
+.yclinks { font-family:Verdana, Geneva, sans-serif; font-size:  8pt; color:#828282; }
+.pagetop { font-family:Verdana, Geneva, sans-serif; font-size: 10pt; color:#222222; line-height:12px; }
+.comhead { font-family:Verdana, Geneva, sans-serif; font-size:  8pt; color:#828282; }
+.comment { font-family:Verdana, Geneva, sans-serif; font-size:  9pt; }
+.hnname  { margin-right: 5px; }
+
+
+
+.bg-hacker-news {
+  background-color: #f3724af8 !important;
 }
+
+.form-control-mine {
+  display: block;
+  width: 40%;
+  height: calc(1.6em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+
+.custom-select-mine {
+  display: inline-block;
+  width: 15%;
+  height: calc(1.6em + 0.75rem + 2px);
+  padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #495057;
+  vertical-align: middle;
+  background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.btn-primary-mine {
+  color: #fff;
+  background-color: #f3724af8;
+  border-color: #f3724af8;
+}
+
+.clickable:hover {
+  color: #0256b3 !important;
+  text-decoration: underline !important;
+  cursor: pointer !important;
+}
+
+
