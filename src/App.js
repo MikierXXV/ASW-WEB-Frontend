@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 import './App.css';
-import API from "./services/API";
-import {Redirect, Route, Switch} from "react-router-dom";
-//import "boostrap/dist/css/bootstrap.min.css";
-//import "boostrap/dist/css/bootstrap.min.js";
-import logo from './logo.svg';
+//import API from "./services/API";
+//import {Redirect, Route, Switch} from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
+//import logo from './logo.svg';
 
 
 class App extends Component {
@@ -12,7 +12,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      loading: true,
+      //loading: true,
       user: {},
     }
   }
@@ -20,7 +20,6 @@ class App extends Component {
   render() {
     const {loading, user} = this.state;
     return (
-        loading ? <></>:
             <>
               <div style={{height: '10px'}}></div>
               <div className="col-md">
@@ -42,7 +41,7 @@ class App extends Component {
                           Comments
                         </a>
                       </li>
-                      { user.id == null } ?
+                      { user.id == null  ?
                       <li className="nav-item">
                         <a className='navbar-brand' style={{fontWeight: 'bold'}} href="/login">
                           Threads
@@ -52,13 +51,13 @@ class App extends Component {
                         <a className='navbar-brand' style={{fontWeight: 'bold'}} href={'/profile/' + user.id + '/thread'}>
                           Threads
                         </a>
-                      </li>
+                      </li> }
                       <li className="nav-item">
                         <a className='navbar-brand' style={{fontWeight: 'bold'}} href="/news/ask">
                           Ask
                         </a>
                       </li>
-                      { user.id == null } ?
+                      { user.id == null  ?
                       <li className="nav-item">
                         <a className='navbar-brand' style={{fontWeight: 'bold'}} href="/login">
                           Submits
@@ -68,8 +67,8 @@ class App extends Component {
                         <a className='navbar-brand' style={{fontWeight: 'bold'}} href={'/profile/' + user.id + '/submissions'}>
                           Submits
                         </a>
-                      </li>
-                      { user.id == null } ?
+                      </li> }
+                      { user.id == null ?
                       <li className="nav-item">
                         <a className='navbar-brand' style={{fontWeight: 'bold'}} href="/login">
                           Login
@@ -79,12 +78,9 @@ class App extends Component {
                         <a className='navbar-brand' style={{fontWeight: 'bold'}} href={'/profile/' + user.id }>
                           {user.username}
                         </a>
-                      </li>
+                      </li>}
                     </ul>
                   </nav>
-                  <Switch>
-
-                  </Switch>
                 </div>
               </div>
             </>
