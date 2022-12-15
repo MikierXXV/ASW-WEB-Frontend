@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import API from "../services/API";
-import CircularProgress from "@material-ui/core/CircularProgress";
+//import CircularProgress from "@material-ui/core/CircularProgress";
+import EditProfile from "../components/users/editprofile";
+import ShowProfile from "../components/users/showprofile";
 
 
 class Profile extends Component{
@@ -13,7 +15,7 @@ class Profile extends Component{
     }
 
     componentDidMount(){
-        API.get("user").then((res) => {
+        API.get('/profile/'+ this.props.match.params.id).then((res) => {
             this.setState({
                 user: res.data,
                 loading: false,
@@ -21,21 +23,28 @@ class Profile extends Component{
         });
     }
 
-    //TODO: modificar render adecuadamente
+   renderProfile(user){
+        return (
+            user.id === 3 ?
+            <EditProfile user={user}/>
+            : <ShowProfile user={user}/>
+        )
+   }
+
     render(){
         const { user, loading } = this.state;
         return(
             <div>
-                {loading ? (
-                    <CircularProgress />
-                ) : (
-                    <div>
-                        <h1>Profile</h1>
-                        <p>Username: {user.username}</p>
-                        <p>Email: {user.email}</p>
+                loading ? (
+                    <div style={{display: 'flex', justifyContent: 'center', marginTop: '200px'}}>
+                        <p>Loading</p>
                     </div>
-                )}
+                ) : (
+                    this.renderProfile(user)
+                )
             </div>
         );
     }
 }
+
+export default Profile;

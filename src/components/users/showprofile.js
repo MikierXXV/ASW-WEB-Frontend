@@ -26,7 +26,6 @@ export default class ShowProfile extends Component{
                     <tr className="default">
                         <td valign="top">Created:</td>
                         <td>
-                            //TODO: mirar como poner fecha
                             <div className="default">
                                 { Moment(user.created_at).fromNow() }
                             </div>
@@ -35,7 +34,6 @@ export default class ShowProfile extends Component{
                     <tr>
                         <td></td>
                         <td>
-                            //TODO: mirar path submissions
                             <a className="pagetop" href={'profile/'+ user.id + '/submissions'}>
                                 <u>submissions</u>
                             </a>
@@ -44,7 +42,6 @@ export default class ShowProfile extends Component{
                     <tr>
                         <td></td>
                         <td>
-                            //TODO: mirar path submissions
                             <a className="pagetop" href={'profile/'+ user.id + '/comments'}>
                                 <u>comments</u>
                             </a>

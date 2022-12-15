@@ -1,14 +1,13 @@
 import axios from 'axios';
 
-const API_URL = 'https://asw-web-production.up.railway.app/api/';
-//TODO: mirar token
-const token = "";
+const API_URL = 'https://asw-web-production.up.railway.app/api';
+const apikey = "6qFP{8$X(k/Z#gV@JL`:?q%@y5WcGy7F";
 const headers = {
     Accept: 'application/json',
-    Authorization: token,
+    Authorization: apikey,
 };
 
-class APIService {
+class API {
     get(path) {
         return axios.get(API_URL + path, { headers });
     }
@@ -26,4 +25,4 @@ class APIService {
     }
 }
 
-export default new APIService();
+export default new API();

@@ -53,9 +53,24 @@
 .hnname  { margin-right: 5px; }
 
 
+.hacker-news-nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  height: 3rem;
+  font-family:Geneva, sans-serif;
+  font-size: 15pt;
+  color:#000000;
+}
+
+.hacker-news-nav:hover{
+  color: #4d4d4d;
+}
 
 .bg-hacker-news {
-  background-color: #f3724af8 !important;
+  background-color: #ee5306 !important;
 }
 
 .form-control-mine {
