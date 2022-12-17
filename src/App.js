@@ -86,7 +86,7 @@ class App extends Component {
                 </nav>
                 <Router>
                     <Routes>
-                        <Route path="/profile/:id" component={<Profile user={user}/>}/>
+                        <Route path="/profile/:id" element={<Profile user={user}/>}/>
                     </Routes>
                 </Router>
               </div>

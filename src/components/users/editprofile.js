@@ -5,7 +5,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import Moment from "moment";
 
-export default class EditProfile extends Component{
+class EditProfile extends Component{
     constructor(props) {
         super(props);
         this.handleUpdate = this.handleUpdate.bind(this);
@@ -151,3 +151,5 @@ export default class EditProfile extends Component{
         );
     }
 }
+
+export default EditProfile;
