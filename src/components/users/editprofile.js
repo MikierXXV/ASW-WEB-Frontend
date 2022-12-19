@@ -49,7 +49,6 @@ export default class EditProfile extends Component{
         this.form.validateAll();
 
         if(this.checkBtn.context._errors.length === 0){
-            //TODO: mirar path api put profile
             API.put('/profile/' + this.state.user.id ).then((res) => {
                 this.setState({
                     user: res.data,
@@ -103,7 +102,7 @@ export default class EditProfile extends Component{
                             <tr className="default">
                                 <td valign="top">APIkey:</td>
                                 <td>
-                                    <div className="default">{user.apikey}</div>
+                                    <div className="default">{"6qFP{8$X(k/Z#gV@JL`:?q%@y5WcGy7F"}</div>
                                 </td>
                             </tr>
                             <tr style={{height: "20px"}}></tr>
