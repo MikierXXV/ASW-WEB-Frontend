@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import APIService from "../services/API";
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-//import ListSubmissions from "../components/submissions/ListSubmissions";
+import ListSubmissions from "../components/submissions/ListSubmissions";
 
 class NewSubmissions extends Component {
     constructor(props) {
@@ -15,7 +15,7 @@ class NewSubmissions extends Component {
     }
 
     componentDidMount() {
-        APIService.get('/news').then(
+        APIService.get('/news/newest/').then(
             response => {
                 this.setState({
                     submissions: response.data.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()),

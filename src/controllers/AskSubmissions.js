@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import APIService from "../services/API";
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-//import ListSubmissions from "../components/submissions/ListSubmissions";
+import ListSubmissions from "../components/submissions/ListSubmissions";
 
 class AskSubmissions extends Component {
     constructor(props) {
