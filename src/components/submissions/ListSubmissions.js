@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Submission from "./Submission"
+import Submission from "./Submission";
 
 export default class ListSubmissions extends Component {
     constructor(props) {
