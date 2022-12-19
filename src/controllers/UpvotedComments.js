@@ -15,7 +15,7 @@ class UpvotedComments extends Component {
     }
 
     componentDidMount() {
-        APIService.get('/users/1/voted-comments').then(
+        APIService.get('/profile/3/upvotedcomments').then(
             response => {
                 this.setState({
                     comments: response.data.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()),

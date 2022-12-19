@@ -15,7 +15,7 @@ class UpvotedSubmissions extends Component {
     }
 
     componentDidMount() {
-        APIService.get('/users/1/voted-submissions').then(
+        APIService.get('/profile/3/upvotedsubmits').then(
             response => {
                 this.setState({
                     submissions: response.data.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()),
