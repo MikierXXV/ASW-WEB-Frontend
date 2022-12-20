@@ -10,15 +10,15 @@ class Profile extends Component{
         super(props);
         this.state = {
             user: {},
-            loading: true,
+            //loading: true,
         }
     }
 
     componentDidMount(){
-        API.get('/profile/' + this.props.user.id).then((res) => {
+        API.get('/profile/3').then((res) => {
             this.setState({
                 user: res.data,
-                loading: false,
+                //loading: false,
             });
         });
     }
@@ -26,7 +26,12 @@ class Profile extends Component{
     render(){
         const { user, loading} = this.state;
         return(
-            loading? <div></div> :
+            loading?
+                <div className="d-flex justify-content-center" style="width: 3rem; height: 3rem;">
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div> :
                 user.id === 3 ? <EditProfile user={user}/> :
                     <ShowProfile user={user}/>
         );

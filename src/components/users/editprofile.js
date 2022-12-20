@@ -4,7 +4,8 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import Moment from "moment";
-
+import {BiUser} from "react-icons/bi";
+import {BsCalendar} from "react-icons/bs";
 class EditProfile extends Component{
     constructor(props) {
         super(props);
@@ -66,27 +67,35 @@ class EditProfile extends Component{
 
     render(){
         const { user, errors, message } = this.state;
+        console.log(user);
         return(
             <div className="col -6 mt-2">
                 <Form onSubmit={this.handleUpdate} ref={c => {this.form = c;}}>
                     <table cellPadding="0" cellSpacing="0">
                         <tbody className="default">
                             <tr className="default">
-                                <td valign="top">User:</td>
+                                <td valign="top">
+                                    <BiUser size="30px" ></BiUser>
+                                    User:
+                                </td>
                                 <td>
                                     <div className="default">{user.username}</div>
                                 </td>
                             </tr>
                             <tr className="default">
-                                <td valign="top">Created:</td>
+                                <td valign="top">
+                                    <BsCalendar size="25px" ></BsCalendar>
+                                    Created:
+                                </td>
                                 <td>
                                     <div className="default">{Moment(user.date_joined).fromNow()}</div>
                                 </td>
                             </tr>
+                            <tr style={{height: "20px"}}></tr>
                             <tr className="default">
                                 <td valign="top">Email:</td>
                                 <td>
-                                    <Input type="text" className="form-control" size="60" name="email"
+                                    <input type="text" className="form-control" size="60" name="email"
                                            value={user.email} onChange={this.onChangeEmail}/>
                                     {errors.email && <div className="alert alert-danger">{errors.email}</div>}
                                 </td>
@@ -94,11 +103,12 @@ class EditProfile extends Component{
                             <tr className="default">
                                 <td valign="top">About:</td>
                                 <td>
-                                    <Input type="text-area" className="form-control" size="60" name="email"
-                                           value={user.description} onChange={this.onChangeDescription}/>
+                                    <input type="text-area" className="form-control" size="60" name="email"
+                                           value={user.about} onChange={this.onChangeDescription}/>
                                     {errors.description && <div className="alert alert-danger">{errors.description}</div>}
                                 </td>
                             </tr>
+                            <tr style={{height: "20px"}}></tr>
                             <tr className="default">
                                 <td valign="top">APIkey:</td>
                                 <td>
