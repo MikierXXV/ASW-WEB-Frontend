@@ -6,7 +6,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 //import logo from './logo.svg';
 
-import Profile from "./controllers/Profile";
+import Profile from "./controllers/Profile"
+import UserSubmissions from "./controllers/UserSubmissions";
+import UserComments from "./controllers/UserComments";
 
 
 class App extends Component {
@@ -86,7 +88,9 @@ class App extends Component {
                 </nav>
                 <Router>
                     <Routes>
-                        <Route path="/profile/:id" element={<Profile user={user}/>}/>
+                      <Route path="/profile/:id" element={<Profile user={user}/>}/>
+                      <Route exact path="/profile/:id/submissions" element={<UserSubmissions/>} />
+                      <Route exact path="/profile/:id/thread" element={<UserComments/>} />
                     </Routes>
                 </Router>
               </div>
