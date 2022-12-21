@@ -143,7 +143,7 @@ class EditProfile extends Component{
                                     </a>
                                     {' / '}
                                     <a className="pagetop" href={'/profile/'+ user.id + '/upvotedcomments'}>
-                                        <u>upvoted submissions</u>
+                                        <u>upvoted comments</u>
                                     </a>
                                     {' (private)'}
                                 </td>
