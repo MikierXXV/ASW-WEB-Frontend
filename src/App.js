@@ -6,7 +6,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 //import logo from './logo.svg';
 
-import Profile from "./controllers/Profile";
+import Profile from "./controllers/Profile"
+import UserSubmissions from "./controllers/UserSubmissions";
+import UserComments from "./controllers/UserComments";
+import UpvotedComments from "./controllers/UpvotedComments";
+import UpvotedSubmissions from "./controllers/UpvotedSubmissions";
 
 
 class App extends Component {
@@ -30,12 +34,6 @@ class App extends Component {
 
   render() {
     const {loading, user} = this.state;
-    /*
-    <Route exact path="/profile/:id/submissions" component={UserSubmissions} />
-    <Route exact path="/profile/:id/thread" component={UserComments} />
-    <Route exact path="/profile/:id/upvotedsubmissions" component={UpvotedSubmissions} />
-    <Route exact path="/profile/:id/upvotedcomments" component={UpvotedComments} />
-    */
     return (
       loading ? <></> :
           <>
@@ -86,7 +84,11 @@ class App extends Component {
                 </nav>
                 <Router>
                     <Routes>
-                        <Route path="/profile/:id" component={<Profile user={user}/>}/>
+                      <Route path="/profile/:id" element={<Profile user={user}/>}/>
+                      <Route exact path="/profile/:id/submissions" element={<UserSubmissions/>} />
+                      <Route exact path="/profile/:id/thread" element={<UserComments/>} />
+                      <Route exact path="/profile/:id/upvotedcomments" element={<UpvotedComments/>} />
+                      <Route exact path="/profile/:id/upvotedsubmissions" element={<UpvotedSubmissions/>} />
                     </Routes>
                 </Router>
               </div>
