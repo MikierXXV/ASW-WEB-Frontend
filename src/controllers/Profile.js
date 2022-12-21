@@ -10,7 +10,7 @@ class Profile extends Component{
         super(props);
         this.state = {
             user: {},
-            //loading: true,
+            loading: true,
         }
     }
 
@@ -18,7 +18,7 @@ class Profile extends Component{
         API.get('/profile/3').then((res) => {
             this.setState({
                 user: res.data,
-                //loading: false,
+                loading: false,
             });
         });
     }
@@ -27,7 +27,7 @@ class Profile extends Component{
         const { user, loading} = this.state;
         return(
             loading?
-                <div className="d-flex justify-content-center" style="width: 3rem; height: 3rem;">
+                <div className="d-flex justify-content-center mt-5" >
                     <div className="spinner-border" role="status">
                         <span className="sr-only">Loading...</span>
                     </div>
