@@ -14,7 +14,7 @@ class UserComments extends Component{
 
     componentDidMount(){
         //let id = this.props.match.params.id !== undefined ? this.props.match.params.id : 1;
-        API.get('/profile/3/thread').then((res) => {
+        API.get('/profile/1/thread').then((res) => {
             this.setState({
                 comments: res.data.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()),
                 loading: false,

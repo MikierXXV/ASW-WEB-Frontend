@@ -27,7 +27,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    API.get('/profile/3').then((res) => {
+    API.get('/profile/1').then((res) => {
       this.setState({
         user: res.data,
         loading: false,
@@ -85,7 +85,7 @@ class App extends Component {
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a className='hacker-news-nav' style={{fontWeight: 'bold', paddingLeft: 180 }} href='/profile/3'>
+                      <a className='hacker-news-nav' style={{fontWeight: 'bold', paddingLeft: 180 }} href='/profile/1'>
                         {user.username}
                       </a>
                     </li>

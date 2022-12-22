@@ -13,7 +13,7 @@ class UpvotedSubmissions extends Component{
     }
 
     componentDidMount(){
-        API.get('/profile/3/upvotedsubmissions/').then((res) => {
+        API.get('/profile/1/upvotedsubmissions/').then((res) => {
             this.setState({
                 submissions: res.data.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()),
                 loading: false,
