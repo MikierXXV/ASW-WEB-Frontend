@@ -82,8 +82,10 @@ export default class EditSubmission extends Component {
         const { title, url, text, errors, submission, loading } = this.state;
 
         return ( loading ?
-                <div style={{display: 'flex', justifyContent: 'center', marginTop: '200px' }}>
-                    <CircularProgress />
+                <div className="d-flex justify-content-center mt-5" >
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only"></span>
+                    </div>
                 </div>
                 :
                 <div className="col-8 mt-2">

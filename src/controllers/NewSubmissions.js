@@ -17,7 +17,7 @@ class NewSubmissions extends Component {
         APIService.get('/news/newest/').then(
             response => {
                 this.setState({
-                    submissions: response.data.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()),
+                    submissions: response.data.results.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()),
                     loading: false
                 });
             }

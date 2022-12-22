@@ -98,10 +98,10 @@ export default class Submission extends Component {
                     <td colSpan="2"></td>
                     <td className="subtext">
               <span className="subtext">
-                {submission.score + ' points by '}
+                {submission.votes + ' points by '}
               </span>
-                        <a className="subtext" href={'/users/' + submission.user.id}>
-                            {submission.user.username}
+                        <a className="subtext" href={'/profile/' + submission.author.id}>
+                            {submission.author.username}
                         </a>
                         &nbsp;
                         <a className="subtext" href={'/comment/' + submission.id}>

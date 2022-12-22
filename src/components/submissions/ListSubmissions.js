@@ -18,7 +18,7 @@ export default class ListSubmissions extends Component {
             <div className="row ml-1">
                 <div className="col">
                     {
-                        submissions.data.map((submission) => {
+                        submissions.map((submission) => {
                             index++;
                             return <Submission key={submission.id} index={index} submission={submission} />
                         })

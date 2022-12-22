@@ -28,7 +28,7 @@ class Profile extends Component{
             loading?
                 <div className="d-flex justify-content-center mt-5" >
                     <div className="spinner-border" role="status">
-                        <span className="sr-only">Loading...</span>
+                        <span className="sr-only"></span>
                     </div>
                 </div> :
                 user.id === 1 ? <EditProfile user={user}/> :

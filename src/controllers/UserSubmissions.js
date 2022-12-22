@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import API from "../services/API";
-//import ListSubmissions form "../components/submissions/ListSubmissions";
+import ListSubmissions from "../components/submissions/ListSubmissions";
 
 
 class UserSubmissions extends Component{
     constructor(props){
         super(props);
         this.state = {
-            submissions: [],
+            submissions: props.submissions,
             loading: true,
         }
     }
@@ -15,7 +15,7 @@ class UserSubmissions extends Component{
     componentDidMount(){
         API.get('/profile/1/submissions/').then((res) => {
             this.setState({
-                submissions: res.data.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()),
+                submissions: res.data,//.results.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()),
                 loading: false,
             });
         });
@@ -28,10 +28,11 @@ class UserSubmissions extends Component{
             loading?
                 <div className="d-flex justify-content-center mt-5" >
                     <div className="spinner-border" role="status">
-                        <span className="sr-only">Loading...</span>
+                        <span className="sr-only"></span>
                     </div>
-                </div> : <div> Lista Submissions</div>
-                //<ListSubmissions submissions={submissions}></ListSubmissions>
+                </div> :
+                <ListSubmissions submissions={submissions}></ListSubmissions>
+
         );
     }
 }

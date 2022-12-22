@@ -16,8 +16,9 @@ class IndexSubmissions extends Component {
     componentDidMount() {
         APIService.get('/news/').then(
            (res) => {
+               console.log(res.data);
                 this.setState({
-                    submissions: res.data,
+                    submissions: res.data.results.sort((a, b) => a.votes - b.votes),//.results.sort((a, b) => b.points -  a.points),
                     loading: false
                 });
             }
@@ -27,6 +28,7 @@ class IndexSubmissions extends Component {
 
     render() {
         const { loading, submissions } = this.state;
+        //console.log(submissions);
         return (
             loading ?
                 <div className="d-flex justify-content-center mt-5" >

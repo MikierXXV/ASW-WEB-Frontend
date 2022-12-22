@@ -14,6 +14,7 @@ import UserSubmissions from "./controllers/UserSubmissions";
 import UserComments from "./controllers/UserComments";
 import UpvotedComments from "./controllers/UpvotedComments";
 import UpvotedSubmissions from "./controllers/UpvotedSubmissions";
+import EditSubmission from "./components/submissions/EditSubmission";
 
 
 class App extends Component {
@@ -37,12 +38,6 @@ class App extends Component {
 
   render() {
     const {loading, user} = this.state;
-    /*
-    <Route exact path="/profile/:id/submissions" component={UserSubmissions} />
-    <Route exact path="/profile/:id/thread" component={UserComments} />
-    <Route exact path="/profile/:id/upvotedsubmissions" component={UpvotedSubmissions} />
-    <Route exact path="/profile/:id/upvotedcomments" component={UpvotedComments} />
-    */
     return (
       loading ? <></> :
           <>
@@ -65,11 +60,6 @@ class App extends Component {
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a className='hacker-news-nav' style={{fontWeight: 'bold'}} href="/comment">
-                        Comments
-                      </a>
-                    </li>
-                    <li className="nav-item">
                       <a className='hacker-news-nav' style={{fontWeight: 'bold'}} href={'/profile/' + user.id + '/thread'}>
                         Threads
                       </a>
@@ -80,7 +70,7 @@ class App extends Component {
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a className='hacker-news-nav' style={{fontWeight: 'bold'}} href={'/profile/' + user.id + '/submissions'}>
+                      <a className='hacker-news-nav' style={{fontWeight: 'bold'}} href={'/news/1/'}>
                         Submits
                       </a>
                     </li>
@@ -101,6 +91,7 @@ class App extends Component {
                       <Route exact path="/news/" element={<IndexSubmissions/>}/>
                       <Route exact path="/news/newest/" element={<NewSubmissions/>}/>
                       <Route exact path="/news/ask" element={<AskSubmissions/>}/>
+                      <Route exact path="/news/:id/" element={<EditSubmission/>} />
                     </Routes>
                 </Router>
               </div>
@@ -109,28 +100,5 @@ class App extends Component {
     );
   }
 }
-
-
-/*
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}*/
 
 export default App;
