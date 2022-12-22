@@ -10,6 +10,11 @@ import Profile from "./controllers/Profile";
 import IndexSubmissions from "./controllers/IndexSubmissions";
 import NewSubmissions from "./controllers/NewSubmissions";
 import AskSubmissions from "./controllers/AskSubmissions";
+import Profile from "./controllers/Profile"
+import UserSubmissions from "./controllers/UserSubmissions";
+import UserComments from "./controllers/UserComments";
+import UpvotedComments from "./controllers/UpvotedComments";
+import UpvotedSubmissions from "./controllers/UpvotedSubmissions";
 
 
 class App extends Component {
@@ -51,12 +56,12 @@ class App extends Component {
                       <img src='../public/y18.gif' alt=""/>
                     </li>
                     <li className="nav-item">
-                      <a className='hacker-news-nav' style={{fontWeight: 'bold'}} href="/news/">
+                      <a className='hacker-news-nav' style={{fontWeight: 'bold'}} href="/news">
                         Hacker News
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a className='hacker-news-nav' style={{fontWeight: 'bold'}} href="/news/newest/">
+                      <a className='hacker-news-nav' style={{fontWeight: 'bold'}} href="/news/newest">
                         Newest
                       </a>
                     </li>
@@ -89,10 +94,14 @@ class App extends Component {
                 </nav>
                 <Router>
                     <Routes>
-                        <Route path="/profile/:id" component={<Profile user={user}/>}/>
-                        <Route path="/news/" element={<IndexSubmissions/>}/>
-                        <Route path="/news/newest/" element={<NewSubmissions/>}/>
-                        <Route path="/news/ask" element={<AskSubmissions/>}/>
+                      <Route path="/profile/:id" element={<Profile user={user}/>}/>
+                      <Route exact path="/profile/:id/submissions" element={<UserSubmissions/>} />
+                      <Route exact path="/profile/:id/thread" element={<UserComments/>} />
+                      <Route exact path="/profile/:id/upvotedcomments" element={<UpvotedComments/>} />
+                      <Route exact path="/profile/:id/upvotedsubmissions" element={<UpvotedSubmissions/>} />
+                      <Route exact path="/news/" element={<IndexSubmissions/>}/>
+                      <Route exact path="/news/newest/" element={<NewSubmissions/>}/>
+                      <Route exact path="/news/ask" element={<AskSubmissions/>}/>
                     </Routes>
                 </Router>
               </div>
