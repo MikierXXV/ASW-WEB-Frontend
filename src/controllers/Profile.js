@@ -15,7 +15,7 @@ class Profile extends Component{
     }
 
     componentDidMount(){
-        API.get('/profile/3').then((res) => {
+        API.get('/profile/1').then((res) => {
             this.setState({
                 user: res.data,
                 loading: false,
@@ -32,7 +32,7 @@ class Profile extends Component{
                         <span className="sr-only">Loading...</span>
                     </div>
                 </div> :
-                user.id === 3 ? <EditProfile user={user}/> :
+                user.id === 1 ? <EditProfile user={user}/> :
                     <ShowProfile user={user}/>
         );
     }
