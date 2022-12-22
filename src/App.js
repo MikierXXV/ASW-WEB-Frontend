@@ -6,11 +6,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 //import logo from './logo.svg';
 
-import Profile from "./controllers/Profile"
+import Profile from "./controllers/Profile";
+import IndexSubmissions from "./controllers/IndexSubmissions";
+import NewSubmissions from "./controllers/NewSubmissions";
+import AskSubmissions from "./controllers/AskSubmissions";
 import UserSubmissions from "./controllers/UserSubmissions";
 import UserComments from "./controllers/UserComments";
 import UpvotedComments from "./controllers/UpvotedComments";
 import UpvotedSubmissions from "./controllers/UpvotedSubmissions";
+import EditSubmission from "./components/submissions/EditSubmission";
+import CommentForm from "./components/submissions/CommentForm";
 
 
 class App extends Component {
@@ -34,14 +39,6 @@ class App extends Component {
 
   render() {
     const {loading, user} = this.state;
-    /*
-    <Route exact path="/profile/:id/submissions" component={UserSubmissions} />
-    <Route exact path="/profile/:id/thread" component={UserComments} />
-    <Route exact path="/profile/:id/upvotedsubmissions" component={UpvotedSubmissions} />
-    <Route exact path="/profile/:id/upvotedcomments" component={UpvotedComments} />
-    <Route exact path="/comment/:id" component={CommentForm} />
-    <Route exact path="/reply/:id" component={Reply} />
-    */
     return (
       loading ? <></> :
           <>
@@ -64,11 +61,6 @@ class App extends Component {
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a className='hacker-news-nav' style={{fontWeight: 'bold'}} href="/comment">
-                        Comments
-                      </a>
-                    </li>
-                    <li className="nav-item">
                       <a className='hacker-news-nav' style={{fontWeight: 'bold'}} href={'/profile/' + user.id + '/thread'}>
                         Threads
                       </a>
@@ -79,7 +71,7 @@ class App extends Component {
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a className='hacker-news-nav' style={{fontWeight: 'bold'}} href={'/profile/' + user.id + '/submissions'}>
+                      <a className='hacker-news-nav' style={{fontWeight: 'bold'}} href={'/news/1/'}>
                         Submits
                       </a>
                     </li>
@@ -97,6 +89,13 @@ class App extends Component {
                       <Route exact path="/profile/:id/thread" element={<UserComments/>} />
                       <Route exact path="/profile/:id/upvotedcomments" element={<UpvotedComments/>} />
                       <Route exact path="/profile/:id/upvotedsubmissions" element={<UpvotedSubmissions/>} />
+
+                      <Route exact path="/news/" element={<IndexSubmissions/>}/>
+                      <Route exact path="/news/newest/" element={<NewSubmissions/>}/>
+                      <Route exact path="/news/ask" element={<AskSubmissions/>}/>
+                      <Route exact path="/news/:id/" element={<EditSubmission/>} />
+
+                      <Route exact path="/comment:id/" element={<CommentForm/>} />
                     </Routes>
                 </Router>
               </div>
@@ -105,28 +104,5 @@ class App extends Component {
     );
   }
 }
-
-
-/*
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}*/
 
 export default App;

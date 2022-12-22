@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../services/API";
-//import ListSubmissions form "../components/submissions/ListSubmissions";
+import ListSubmissions from "../components/submissions/ListSubmissions";
 
 
 class UpvotedSubmissions extends Component{
@@ -28,10 +28,10 @@ class UpvotedSubmissions extends Component{
             loading?
                 <div className="d-flex justify-content-center mt-5" >
                     <div className="spinner-border" role="status">
-                        <span className="sr-only">Loading...</span>
+                        <span className="sr-only"></span>
                     </div>
-                </div> : <div> Lista Upvoted Submissions</div>
-            //<ListSubmissions submissions={submissions}></ListSubmissions>
+                </div> :
+            <ListSubmissions submissions={submissions}></ListSubmissions>
 
         );
     }

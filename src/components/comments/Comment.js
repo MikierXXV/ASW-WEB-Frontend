@@ -9,13 +9,13 @@ export default class Comment extends Component {
         super(props);
         this.onClickVote = this.onClickVote.bind(this);
         this.onClickUnvote = this.onClickUnvote.bind(this);
-        this.onClickDelete = this.onClickDelete.bind(this);
-        this.onClickEdit = this.onClickEdit.bind(this);
+//        this.onClickDelete = this.onClickDelete.bind(this);
+//        this.onClickEdit = this.onClickEdit.bind(this);
         this.handleUpdate = this.handleUpdate.bind(this);
         this.onChangeText = this.onChangeText.bind(this);
 
         this.state = {
-            edit: false,
+            //edit: false,
             text: props.comment.text,
             errors: {},
             comment: props.comment,
@@ -24,23 +24,22 @@ export default class Comment extends Component {
             deleteButton: props.deleteButton === undefined ? true : props.deleteButton
         };
     }
+    /*onClickEdit() {
+    this.setState({
+        edit: !this.state.edit
+    });
+}
 
-    onClickEdit() {
-        this.setState({
-            edit: !this.state.edit
-        });
-    }
-
-    onClickDelete() {
-        APIService.delete('/comments/' + this.state.comment.id).then(
-            response => {
-                window.location.reload()
-            }
-        );
-    }
+onClickDelete() {
+    APIService.delete('/comments/' + this.state.comment.id).then(
+        response => {
+            window.location.reload()
+        }
+    );
+}*/
 
     onClickUnvote() {
-        APIService.delete('/comments/' + this.state.comment.id + '/votes').then(
+        APIService.delete('/comment' + this.state.comment.id + '/votes').then(
             response => {
                 this.setState({
                     comment: response.data,
@@ -50,7 +49,7 @@ export default class Comment extends Component {
     }
 
     onClickVote() {
-        APIService.post('/comments/' + this.state.comment.id + '/votes').then(
+        APIService.post('/comment' + this.state.comment.id + '/votes').then(
             response => {
                 this.setState({
                     comment: response.data,
@@ -80,14 +79,14 @@ export default class Comment extends Component {
         this.form.validateAll();
 
         if (this.checkBtn.context._errors.length === 0) {
-            APIService.put('/comments/' + this.state.comment.id, {
+            APIService.post('/comment', {
                 text: this.state.text
             }).then(
                 response => {
                     this.setState({
                         comment: response.data,
                         text: response.data.text,
-                        edit: false
+                        //edit: false
                     });
                 },
                 error => {
@@ -100,7 +99,7 @@ export default class Comment extends Component {
     }
 
     render() {
-        const { comment, on, reply, edit, text, errors, deleteButton } = this.state;
+        const { comment, on, reply, text, errors} = this.state;
         return(
             <table>
                 <tbody>
@@ -113,7 +112,7 @@ export default class Comment extends Component {
                                     { this.renderStatus(comment.status) }
                                 </td>
                                 <td>
-                                    <a className="yclinks" href={ '/users/' + comment.user.id }>{ comment.user.username }</a>&nbsp;
+                                    <a className="yclinks" href={ '/profile/' + comment.user.id }>{ comment.user.username }</a>&nbsp;
                                     <span className="subtext">
                         { Moment(comment.created_at).fromNow() + ' ' }
                       </span>
@@ -129,22 +128,12 @@ export default class Comment extends Component {
                                         <>
                                             <span className = "subtext">|</span>
                                             &nbsp;
-                                            <span className="subtext clickable" onClick={ this.onClickEdit }>edit</span>
-                                            &nbsp;
-                                            { deleteButton &&
-                                                <>
-                                                    <span className="subtext">|</span>
-                                                    &nbsp;
-                                                    <span className="subtext clickable" onClick={ this.onClickDelete }>delete</span>
-                                                    &nbsp;
-                                                </>
-                                            }
                                         </>
                                     }
                                     { on &&
                                         <>
                                             <span className = "yclinks">| on: </span>
-                                            <a className="yclinks" href={ '/comment/' + comment.parent_contribution.id }>{ comment.parent_contribution.title }</a>
+                                            <a className="yclinks" href={ '/comment' + comment.parent_contribution.id }>{ comment.parent_contribution.title }</a>
                                         </>
                                     }
                                 </td>
@@ -152,27 +141,7 @@ export default class Comment extends Component {
                             <tr>
                                 <td colSpan="1"></td>
                                 <td className="comment">
-                                    { edit ?
-                                        <Form onSubmit={ this.handleUpdate } ref={ c => { this.form = c; } }>
-                                            <div className="form-group">
-                                <textarea
-                                    name="text"
-                                    className="form-control"
-                                    rows="2"
-                                    value={ text }
-                                    onChange={ this.onChangeText }
-                                />
-                                                { errors.text &&
-                                                    <div className="alert alert-danger">{ errors.text }</div>
-                                                }
-                                            </div>
-                                            <button type="submit" className="btn btn-primary-mine">update</button>
-                                            <CheckButton
-                                                style={{ display: "none" }}
-                                                ref={c => {this.checkBtn = c;}}
-                                            />
-                                        </Form>
-                                        :
+                                    {
                                         comment.text
                                     }
                                 </td>

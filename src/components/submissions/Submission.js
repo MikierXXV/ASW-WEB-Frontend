@@ -27,9 +27,7 @@ export default class Submission extends Component {
     onClickDelete() {
         APIService.delete('/news/' + this.state.submission.id + '/').then(
             response => {
-                this.setState({
-                    submission: response.data,
-                });
+                    window.location.reload();
             }
         );
     }
@@ -84,7 +82,7 @@ export default class Submission extends Component {
                                 submission.type === 'url' ?
                                     submission.url
                                     :
-                                    '/comment/' + submission.id
+                                    '/comment' + submission.id + '/'
                             }>
                             {submission.title}
                         </a>
@@ -100,13 +98,13 @@ export default class Submission extends Component {
                     <td colSpan="2"></td>
                     <td className="subtext">
               <span className="subtext">
-                {submission.score + ' points by '}
+                {submission.votes + ' points by '}
               </span>
-                        <a className="subtext" href={'/users/' + submission.user.id}>
-                            {submission.user.username}
+                        <a className="subtext" href={'/profile/' + submission.author.id}>
+                            {submission.author.username}
                         </a>
                         &nbsp;
-                        <a className="subtext" href={'/comment/' + submission.id}>
+                        <a className="subtext" href={'/comment' + submission.id + '/'}>
                             {Moment(submission.created_at).fromNow()}
                         </a>
                         &nbsp;
@@ -135,7 +133,7 @@ export default class Submission extends Component {
                             </>
                         }
                         <span className="subtext">|</span>&nbsp;
-                        <a className="subtext" href={'/comment/' + submission.id}>
+                        <a className="subtext" href={'/comment' + submission.id + '/'}>
                             {submission.comments + ' comments'}
                         </a>
                     </td>

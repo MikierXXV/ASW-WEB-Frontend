@@ -13,14 +13,15 @@ export default class ListSubmissions extends Component {
     render() {
         let index = 0;
         const { submissions } = this.state;
-
+        console.log(submissions);
         return (
             <div className="row ml-1">
                 <div className="col">
-                    { submissions.map((submission) => {
-                        index++;
-                        return <Submission key={submission.id} index={index} submission={submission} />
-                    })
+                    {
+                        submissions.map((submission) => {
+                            index++;
+                            return <Submission key={submission.id} index={index} submission={submission} />
+                        })
                     }
                 </div>
             </div>

@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import APIService from "../services/API";
-import CircularProgress from '@material-ui/core/CircularProgress';
-
-//import ListSubmissions from "../components/submissions/ListSubmissions";
+import ListSubmissions from "../components/submissions/ListSubmissions";
 
 class AskSubmissions extends Component {
     constructor(props) {
@@ -18,7 +16,7 @@ class AskSubmissions extends Component {
         APIService.get('/news/ask').then(
             response => {
                 this.setState({
-                    submissions: response.data.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()),
+                    submissions: response.data.results.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()),
                     loading: false
                 });
             }
@@ -28,8 +26,10 @@ class AskSubmissions extends Component {
         const { loading, submissions } = this.state;
         return (
             loading ?
-                <div style={{display: 'flex', justifyContent: 'center', marginTop: '200px' }}>
-                    <CircularProgress />
+                <div className="d-flex justify-content-center mt-5" >
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only"></span>
+                    </div>
                 </div>
                 :
                 <ListSubmissions submissions={ submissions } />

@@ -3,7 +3,7 @@ import Form from "react-validation/build/form";
 import CheckButton from "react-validation/build/button";
 import APIService from "../../services/API";
 import RecursiveComments from "../comments/RecursiveComments";
-//import Submission from "./submission";
+import Submission from "./Submission";
 
 class CommentForm extends Component {
     constructor(props) {
@@ -28,7 +28,6 @@ class CommentForm extends Component {
 
     componentDidMount() {
         let id = this.props.match.params.id;
-
         Promise.all([
             APIService.get('/news/' + id + "/"),
             APIService.get('/comment' + id + "/")
@@ -36,7 +35,7 @@ class CommentForm extends Component {
             responses => {
                 this.setState({
                     submission: responses[0].data,
-                    comments: responses[1].data.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()),
+                    comments: responses[1].data.results.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()),
                     loading: false,
                 });
             }
@@ -78,7 +77,6 @@ class CommentForm extends Component {
 
     render() {
         const { submission, text, errors, comments, loading } = this.state;
-
         return (
             !loading ?
                 <div className="row ml-1 mt-2">
