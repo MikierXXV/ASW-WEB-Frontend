@@ -10,7 +10,6 @@ import Profile from "./controllers/Profile";
 import IndexSubmissions from "./controllers/IndexSubmissions";
 import NewSubmissions from "./controllers/NewSubmissions";
 import AskSubmissions from "./controllers/AskSubmissions";
-import Profile from "./controllers/Profile"
 import UserSubmissions from "./controllers/UserSubmissions";
 import UserComments from "./controllers/UserComments";
 import UpvotedComments from "./controllers/UpvotedComments";
