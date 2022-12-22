@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://asw-web-production.up.railway.app/api';
+const API_URL = 'https://asw-web-production-mmsd.up.railway.app/api';
 const apikey = "6qFP{8$X(k/Z#gV@JL`:?q%@y5WcGy7F";
 const headers = {
     Accept: 'application/json',
