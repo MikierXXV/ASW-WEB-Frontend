@@ -38,6 +38,14 @@ class App extends Component {
 
   render() {
     const {loading, user} = this.state;
+    /*
+    <Route exact path="/profile/:id/submissions" component={UserSubmissions} />
+    <Route exact path="/profile/:id/thread" component={UserComments} />
+    <Route exact path="/profile/:id/upvotedsubmissions" component={UpvotedSubmissions} />
+    <Route exact path="/profile/:id/upvotedcomments" component={UpvotedComments} />
+    <Route exact path="/comment/:id" component={CommentForm} />
+    <Route exact path="/reply/:id" component={Reply} />
+    */
     return (
       loading ? <></> :
           <>
