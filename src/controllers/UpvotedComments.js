@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../services/API";
-//import ListComments form "../components/comments/ListComments";
+//import ListComments from "../components/comments/ListComments";
 
 
 class UpvotedComments extends Component{
@@ -29,7 +29,7 @@ class UpvotedComments extends Component{
             loading?
                 <div className="d-flex justify-content-center mt-5" >
                     <div className="spinner-border" role="status">
-                        <span className="sr-only">Loading...</span>
+                        <span className="sr-only"></span>
                     </div>
                 </div> : <div> Lista Upvoted Comments</div>
             //<ListComments comments={comments}></ListComments>
