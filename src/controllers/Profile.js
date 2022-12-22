@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import API from "../services/API";
-//import CircularProgress from "@material-ui/core/CircularProgress";
 import EditProfile from "../components/users/editprofile";
 import ShowProfile from "../components/users/showprofile";
 
