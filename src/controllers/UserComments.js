@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../services/API";
-//import ListComments form "../components/comments/ListComments";
+import ListComments from "../components/comments/ListComments";
 
 
 class UserComments extends Component{
@@ -31,8 +31,8 @@ class UserComments extends Component{
                     <div className="spinner-border" role="status">
                         <span className="sr-only"></span>
                     </div>
-                </div> : <div> Lista Comments</div>
-            //<ListComments comments={comments}></ListComments>
+                </div> :
+            <ListComments comments={comments}></ListComments>
         );
     }
 }
