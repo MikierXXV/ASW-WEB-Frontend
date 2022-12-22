@@ -33,8 +33,10 @@ class UpvotedComments extends Component{
                     </div>
                 </div> : <div> Lista Upvoted Comments</div>
             //<ListComments comments={comments}></ListComments>
+
         );
     }
 }
+
 
 export default UpvotedComments;
