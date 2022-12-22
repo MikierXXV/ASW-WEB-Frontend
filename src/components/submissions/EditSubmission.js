@@ -3,7 +3,6 @@ import Form from "react-validation/build/form";
 import CheckButton from "react-validation/build/button";
 import Input from "react-validation/build/input";
 import APIService from "../../services/API";
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 export default class EditSubmission extends Component {
     constructor(props) {

@@ -82,7 +82,7 @@ export default class Submission extends Component {
                                 submission.type === 'url' ?
                                     submission.url
                                     :
-                                    '/comment/' + submission.id
+                                    '/comment' + submission.id + '/'
                             }>
                             {submission.title}
                         </a>
@@ -104,7 +104,7 @@ export default class Submission extends Component {
                             {submission.author.username}
                         </a>
                         &nbsp;
-                        <a className="subtext" href={'/comment/' + submission.id}>
+                        <a className="subtext" href={'/comment' + submission.id + '/'}>
                             {Moment(submission.created_at).fromNow()}
                         </a>
                         &nbsp;
@@ -133,7 +133,7 @@ export default class Submission extends Component {
                             </>
                         }
                         <span className="subtext">|</span>&nbsp;
-                        <a className="subtext" href={'/comment/' + submission.id}>
+                        <a className="subtext" href={'/comment' + submission.id + '/'}>
                             {submission.comments + ' comments'}
                         </a>
                     </td>

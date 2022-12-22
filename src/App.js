@@ -15,6 +15,7 @@ import UserComments from "./controllers/UserComments";
 import UpvotedComments from "./controllers/UpvotedComments";
 import UpvotedSubmissions from "./controllers/UpvotedSubmissions";
 import EditSubmission from "./components/submissions/EditSubmission";
+import CommentForm from "./components/submissions/CommentForm";
 
 
 class App extends Component {
@@ -38,14 +39,6 @@ class App extends Component {
 
   render() {
     const {loading, user} = this.state;
-    /*
-    <Route exact path="/profile/:id/submissions" component={UserSubmissions} />
-    <Route exact path="/profile/:id/thread" component={UserComments} />
-    <Route exact path="/profile/:id/upvotedsubmissions" component={UpvotedSubmissions} />
-    <Route exact path="/profile/:id/upvotedcomments" component={UpvotedComments} />
-    <Route exact path="/comment/:id" component={CommentForm} />
-    <Route exact path="/reply/:id" component={Reply} />
-    */
     return (
       loading ? <></> :
           <>
@@ -96,10 +89,13 @@ class App extends Component {
                       <Route exact path="/profile/:id/thread" element={<UserComments/>} />
                       <Route exact path="/profile/:id/upvotedcomments" element={<UpvotedComments/>} />
                       <Route exact path="/profile/:id/upvotedsubmissions" element={<UpvotedSubmissions/>} />
+
                       <Route exact path="/news/" element={<IndexSubmissions/>}/>
                       <Route exact path="/news/newest/" element={<NewSubmissions/>}/>
                       <Route exact path="/news/ask" element={<AskSubmissions/>}/>
                       <Route exact path="/news/:id/" element={<EditSubmission/>} />
+
+                      <Route exact path="/comment:id/" element={<CommentForm/>} />
                     </Routes>
                 </Router>
               </div>
