@@ -20,6 +20,8 @@ class EditProfile extends Component{
             user: props.user,
             errors: {},
             message: "",
+            email: "",
+            about: "",
         }
     }
     onChangeEmail(value){
