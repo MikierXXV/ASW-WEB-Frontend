@@ -32,6 +32,7 @@ class UpvotedSubmissions extends Component{
                     </div>
                 </div> : <div> Lista Upvoted Submissions</div>
             //<ListSubmissions submissions={submissions}></ListSubmissions>
+
         );
     }
 }
