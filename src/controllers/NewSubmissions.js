@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import APIService from "../services/API";
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 import ListSubmissions from "../components/submissions/ListSubmissions";
 
@@ -29,8 +28,10 @@ class NewSubmissions extends Component {
         const { loading, submissions } = this.state;
         return (
             loading ?
-                <div style={{display: 'flex', justifyContent: 'center', marginTop: '200px' }}>
-                    <CircularProgress />
+                <div className="d-flex justify-content-center mt-5" >
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only"></span>
+                    </div>
                 </div>
                 :
                 <ListSubmissions submissions={ submissions } />

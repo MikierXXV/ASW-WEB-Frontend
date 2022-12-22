@@ -27,9 +27,7 @@ export default class Submission extends Component {
     onClickDelete() {
         APIService.delete('/news/' + this.state.submission.id + '/').then(
             response => {
-                this.setState({
-                    submission: response.data,
-                });
+                    window.location.reload();
             }
         );
     }

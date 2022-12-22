@@ -7,6 +7,9 @@ import "bootstrap/dist/js/bootstrap.min.js";
 //import logo from './logo.svg';
 
 import Profile from "./controllers/Profile";
+import IndexSubmissions from "./controllers/IndexSubmissions";
+import NewSubmissions from "./controllers/NewSubmissions";
+import AskSubmissions from "./controllers/AskSubmissions";
 
 
 class App extends Component {
@@ -48,12 +51,12 @@ class App extends Component {
                       <img src='../public/y18.gif' alt=""/>
                     </li>
                     <li className="nav-item">
-                      <a className='hacker-news-nav' style={{fontWeight: 'bold'}} href="/news">
+                      <a className='hacker-news-nav' style={{fontWeight: 'bold'}} href="/news/">
                         Hacker News
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a className='hacker-news-nav' style={{fontWeight: 'bold'}} href="/news/newest">
+                      <a className='hacker-news-nav' style={{fontWeight: 'bold'}} href="/news/newest/">
                         Newest
                       </a>
                     </li>
@@ -87,6 +90,9 @@ class App extends Component {
                 <Router>
                     <Routes>
                         <Route path="/profile/:id" component={<Profile user={user}/>}/>
+                        <Route path="/news/" element={<IndexSubmissions/>}/>
+                        <Route path="/news/newest/" element={<NewSubmissions/>}/>
+                        <Route path="/news/ask" element={<AskSubmissions/>}/>
                     </Routes>
                 </Router>
               </div>
