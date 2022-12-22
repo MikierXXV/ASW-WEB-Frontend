@@ -3,7 +3,7 @@ import API from "../services/API";
 //import ListSubmissions form "../components/submissions/ListSubmissions";
 
 
-class UpvotedSubmissions extends Component{
+class UserSubmissions extends Component{
     constructor(props){
         super(props);
         this.state = {
@@ -13,7 +13,7 @@ class UpvotedSubmissions extends Component{
     }
 
     componentDidMount(){
-        API.get('/profile/1/upvotedsubmissions/').then((res) => {
+        API.get('/profile/1/submissions/').then((res) => {
             this.setState({
                 submissions: res.data.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()),
                 loading: false,
@@ -30,11 +30,10 @@ class UpvotedSubmissions extends Component{
                     <div className="spinner-border" role="status">
                         <span className="sr-only">Loading...</span>
                     </div>
-                </div> : <div> Lista Upvoted Submissions</div>
-            //<ListSubmissions submissions={submissions}></ListSubmissions>
-
+                </div> : <div> Lista Submissions</div>
+                //<ListSubmissions submissions={submissions}></ListSubmissions>
         );
     }
 }
 
-export default UpvotedSubmissions;
+export default UserSubmissions;
